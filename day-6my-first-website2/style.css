@@ -1,0 +1,196 @@
+#TopTile {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+nav {
+  height: 90px
+}
+nav a{
+  text-decoration:none;
+  color: white;
+}
+nav ul {
+  font-family: 'Josefin Sans'; sans-serif;
+  display: flex;
+  list-style-type: none;
+  background-color: #3c3c3c;
+  color: white;
+  font-size: 30px;
+  margin: 0;
+}
+nav li {
+  padding: 30px;
+  }
+nav li:hover {
+  font-size: 130%;
+}
+#aboutMe {
+  display: flex;
+  position: relative;
+}
+header {
+  margin: 0px;
+  text-align: left;
+  width: 500px;
+  font-family: 'Abril Fatface', cursive;
+  position: absolute;
+  bottom: 50px;
+  color: #3c3c3c;
+  font-size: 55px;
+  line-height: 1;
+  padding-left: 80px;
+}
+
+#Anakin {
+  font-size: 105px;
+}
+
+#pozadi {
+  height: 600px;
+  width: 500px;
+  background-image: url("http://stayathome-syllabus.greenfox.academy/week01/assets/first-website-header.png");
+  background-color: #cccccc;
+  background-position: center;
+  background-size: cover;
+}
+#popis1 {
+  width: 700px;
+  background-color: lightgrey;
+  margin: 0px;
+}
+#popis1 p,
+#popis1 ul{
+  font-family: 'Josefin Sans'; sans-serif;
+  color: #3c3c3c;
+  list-style-type: square;
+  line-height: 1.6;
+  font-size: 28px;
+  margin: 30px 30px;
+}  
+main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 740px;
+  min-width: 300px;
+}
+blockquote {
+  position: relative;
+  width: 780px;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 50px;
+  background-color: #3c3c3c;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  margin-left: -50px;
+  margin-bottom: 0px;
+}
+blockquote::before {
+  content: '\201C';
+	position: absolute;
+	top: -15px;
+	left: 0px;
+	font-size: 150px;
+	line-height: 1;
+}
+
+main h1 {
+  font-family: 'Josefin Sans'; sans-serif;
+  color: #3c3c3c;
+  font-size: 22px;
+  text-transform: uppercase;
+  padding: 50px 0px;
+  margin: 0 30px;
+}
+
+main h2 {
+  font-family: 'Josefin Sans'; sans-serif;
+  color: #3c3c3c;
+  font-size: 22px;
+  padding: 0px;
+  margin: 0 30px;
+}
+
+main h3 {
+  font-family: 'Merriweather', italic;
+  color: #3c3c3c;
+  font-size: 15px;
+  padding: 0px;
+  margin: 0 30px;
+  font-style: italic;
+}
+
+main p {
+  font-family: 'Josefin Sans'; sans-serif;
+  color: #3c3c3c;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 0px;
+  margin: 30px 30px;
+}
+
+main ul {
+  font-family: 'Josefin Sans'; sans-serif;
+  color: #3c3c3c;
+  font-size: 18px;
+  line-height: 1.6;
+  padding-left: 40px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-left: 30px;
+  list-style-type: square;
+}
+.buttonleft {
+  font-family: 'DM Mono', monospace;
+  position: fixed;
+  top: 50%;
+  left: 0px;
+  background-color: rgba(210, 215, 211, 1);
+  opacity: 50%;
+  width: 130px;
+  height: 130px;
+  text-align: right;
+  font-size: 60px;
+  color: white;
+  padding-right: 17px;
+  border: none;
+  border-radius: 50%;
+  margin-left: -105px; 
+}
+.buttonright {
+  font-family: 'DM Mono', monospace;
+  position: fixed;
+  top: 50%;
+  right: 0px;
+  background-color: rgba(210, 215, 211, 1);
+  opacity: 50%;
+  width: 130px;
+  height: 130px;
+  text-align: left;
+  font-size: 60px;
+  color: white;
+  padding-left: 17px;
+  border: none;
+  border-radius: 50%;
+  margin-right: -105px; 
+}
+
+.buttonleft:hover {
+  background-color: rgba(108, 122, 137, .7);
+  margin-left: -65px;
+  cursor: pointer;
+}
+
+.buttonright:hover {
+  background-color: rgba(108, 122, 137, .7);
+  margin-right: -65px; 
+  cursor: pointer;
+}
+
+#personalInterests /* linka nad posledním nadpisem */{
+  border-top: solid 4px #3c3c3c;
+  margin: 0px 0px;
+  padding-left: 30px;
+}
