@@ -147,7 +147,7 @@ main ul {
   position: fixed;
   top: 50%;
   left: 0px;
-  background-color: rgba(210, 215, 211, 1);
+  background-color: rgba(255, 0, 0, 0.829);
   opacity: 50%;
   width: 130px;
   height: 130px;
@@ -164,7 +164,7 @@ main ul {
   position: fixed;
   top: 50%;
   right: 0px;
-  background-color: rgba(210, 215, 211, 1);
+  background-color: rgba(255, 0, 0, 0.829);
   opacity: 50%;
   width: 130px;
   height: 130px;
@@ -178,13 +178,13 @@ main ul {
 }
 
 .buttonleft:hover {
-  background-color: rgba(108, 122, 137, .7);
+  background-color: rgba(255, 0, 0, 0.829);
   margin-left: -65px;
   cursor: pointer;
 }
 
 .buttonright:hover {
-  background-color: rgba(108, 122, 137, .7);
+  background-color: rgba(255, 0, 0, 0.829);
   margin-right: -65px; 
   cursor: pointer;
 }
