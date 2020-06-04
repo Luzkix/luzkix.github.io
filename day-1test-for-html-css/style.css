@@ -1,0 +1,35 @@
+body {
+  font-family: 'Pacifico', cursive;
+}
+
+h1, h2 {
+  background: green;
+  color: white;
+  /* mezi tyto znaky můžu psát komentář který je vidět jen v kódu*/
+  padding: 10px;
+  border: 5px solid black;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 34px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+.red {
+  color: red;
+  font-size:24px;
+}
+
+.green {
+  color: green;
+  text-shadow: red 1px 0 10px;
+}
+
+.jmeno {
+  background: yellow;
+  padding: 10px
+}

@@ -1,0 +1,16 @@
+a {
+  display: block;
+  margin: 10px;
+  font-family: 'Sen', sans-serif;
+  font-size: 24px;
+  color: green;
+}
+a:hover {
+  color: lime;
+  text-decoration: none;
+/* hover je speciální příznak k hyperlinku/div/main a upravuje vlastnosti hyperlinku/bloku při najetí myší */
+}
+a:visited {
+  color: none;
+/* visited je speciální příznak k hyperlinku a upravuje vlastnosti hyperlinku u prokliklých stránek. Stejně funguje příznak active, který upravuje vlastnosti hyperlinku aktivních stránek */
+}

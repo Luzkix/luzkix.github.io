@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: row; /* row je default, nemusím zadávat. Můžu dát i column, nebo row/column-reverse" */
+  flex-wrap: wrap; /* zalamuje čtverce pokud není místo, jinak by se zužovaly */
+  width: 300px;
+  justify-content: flex-end;
+  /* justify-content slouží k různým zarovnáním boxů. Mohu využít space-between nebo space-around k zarovnání/vystředění boxů, pokud je kolem nich místo. Mohu použít i hodnoty center nebo flex-end apod. */
+}
+.green {
+  background-color: #51d400;
+  width: 150px;
+  height: 150px;
+}
+.yellow {
+  background-color: #ffd62a;
+  width: 150px;
+  height: 150px;
+}
+.purple {
+  background-color: #b02afe;
+  width: 150px;
+  height: 150px;
+}

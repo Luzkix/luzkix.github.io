@@ -1,0 +1,23 @@
+main {
+  width: 50%;
+}
+
+h1 {
+  color: #FF423C
+}
+
+h2 {
+  color: #9C33FF
+}
+
+ul {
+  list-style-type: square;
+}
+
+ol {
+  color: purple;
+}
+
+.black {
+  color: black
+}

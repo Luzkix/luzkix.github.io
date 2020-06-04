@@ -1,0 +1,47 @@
+h1 {
+  list-style-type: none;
+  position: fixed;
+  /* position mi zafixuje box v nějaké pozici. Můžu použít relative (k původní pozici), absolute (k nejbližšímu čtverci) nebo fixed (vždy viditelné v prohlížeči - jako menu) */
+  top: 0px;
+  display: flex;
+  height: 50px;
+  background-color: purple;
+  align-items: center;
+  padding-left: 100px;
+  margin: 0px;
+  width: 100%;
+}
+a {
+  height: 30px;
+  background-color: cyan;
+  margin-right: 15px;
+  color: white;
+  text-decoration: none;
+}
+.hlavnistrana {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 60px;
+}
+.hlavnitext {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.footer {
+  display: flex;
+  height: 80px;
+  background-color: grey;
+  margin-top: 10px;
+}
+#zluta {
+  background-color: yellow;
+  flex-grow: 4;
+  height: 500px;
+}
+#zelena {
+  background-color: lightgreen;
+  height: 500px;
+  flex-grow: 1;
+}

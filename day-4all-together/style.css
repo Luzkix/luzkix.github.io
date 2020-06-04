@@ -1,0 +1,39 @@
+div {
+  display: flex;
+  width: 800px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+header {
+  height: 100px;
+  width: 100%;
+  background-color: aqua;
+}
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: blue;
+}
+.orange {
+  background-color: orange;
+  flex-grow: 15; /*mohl bych místo flex-grow použít width: 15%; jak pro orange tak pro purple box, a pro main box bych pak místo % použil flex-grow: 1; (resp. jakoukoli hodnotu, reprezentovalo by to 100% zbytku)*/
+}
+.purple {
+  background-color: purple;
+  flex-grow: 15;
+}
+main {
+  height: 400px;
+  background: red;
+  flex-grow: 70;
+  margin: 0 20px;
+  position: relative; /*to je důležité kvůli tomu čtverečku, který by jinak byl umístěn absolutně vůči celé stránce, nikoli main boxu*/
+}
+nav {
+  width: 50px;
+  height: 50px;
+  background: black;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}

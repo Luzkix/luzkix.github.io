@@ -1,5 +1,51 @@
-body a{
-    display: block;
-    margin: 50px;
-    color: rgb(33, 172, 33);
+main {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 650px;
+    min-width: 250px;
+  }
+
+h1 {
+    font-family: 'Josefin Sans'; sans-serif;
+    color: white;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding: 50px 20px;
+    margin: 0px -20px;
+    background-color: #3c3c3c;
+    text-align: center;
 }
+
+p {
+    font-family: 'Josefin Sans'; sans-serif;
+    color: #3c3c3c;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 0px;
+    margin: 30px 30px;
+  }
+#italic {
+  font-style: italic;
+}
+  
+ul {
+    font-family: 'Josefin Sans'; sans-serif;
+    color: #3c3c3c;
+    font-size: 18px;
+    line-height: 1.6;
+    padding-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 30px;
+    list-style-type: square;
+  }
+
+a {
+    text-decoration:none;
+    color: #3c3c3c;
+  }
+
+a:hover {
+    font-weight: bold;
+  }
+

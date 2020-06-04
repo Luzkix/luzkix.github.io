@@ -1,0 +1,30 @@
+h1 {
+  list-style-type: none;
+  display: flex;
+  height: 50px;
+  background-color: purple;
+  align-items: center;
+  padding-left: 10px;
+  margin: 0px;
+}
+a {
+  height: 30px;
+  width: 6Opx;
+  background-color: cyan;
+  margin-right: 15px;
+  color: cyan;
+  text-decoration: none;
+}
+.hlavnitext {
+  display: flex;
+}
+#zluta {
+  background-color: yellow;
+  flex-grow: 4;
+  height: 500px;
+}
+#zelena {
+  background-color: lightgreen;
+  height: 500px;
+  flex-grow: 1;
+}
