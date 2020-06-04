@@ -3,6 +3,24 @@ main {
     margin-right: auto;
     max-width: 650px;
     min-width: 250px;
+    position: relative;
+  }
+
+  ul::after { /*udělat průhledné pozadí je celkem složité */
+    content: "";
+    background-image: url(0_files/Greenfox.PNG);
+    display: block;
+    opacity: 0.2;
+    background-position: center;  
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 30%;
+    z-index: -1;
+    margin-top: 680px;
+    margin-left: 350px;
   }
 
 h1 {
