@@ -5,34 +5,34 @@ main {
     min-width: 250px;
     position: relative;
   }
+  
+  h1 {
+    font-family: 'Josefin Sans'; sans-serif;
+    color: #3c3c3c;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding: 50px 20px;
+    margin: 0px -20px;
+    text-align: center;
+}
 
   ul::after { /*udělat průhledné pozadí je celkem složité */
     content: "";
     background-image: url(0_files/Greenfox.PNG);
     display: block;
-    opacity: 0.4;
+    opacity: 0.3;
     background-position: center;  
     background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
-    width: 30%;
-    height: 15%;
+    width: 60%;
+    height: 13%;
     z-index: -1;
-    margin-top: 800px;
-    margin-left: 290px;
-  }
+    margin-top: auto;
+    padding-left: 30%;
 
-h1 {
-    font-family: 'Josefin Sans'; sans-serif;
-    color: white;
-    font-size: 22px;
-    text-transform: uppercase;
-    padding: 50px 20px;
-    margin: 0px -20px;
-    background-color: #3c3c3c;
-    text-align: center;
-}
+  }
 
 p {
     font-family: 'Josefin Sans'; sans-serif;
