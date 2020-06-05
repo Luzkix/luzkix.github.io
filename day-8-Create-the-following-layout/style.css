@@ -1,0 +1,20 @@
+body {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+p {
+    padding: 15px;
+    border-bottom: 2px solid black;
+    margin: 0px;
+}
+#last {
+    border-bottom: 0px;
+}
+div {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+p:hover {
+    background-color: rgb(255, 102, 0);
+}

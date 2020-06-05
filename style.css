@@ -10,17 +10,17 @@ main {
     content: "";
     background-image: url(0_files/Greenfox.PNG);
     display: block;
-    opacity: 0.2;
+    opacity: 0.4;
     background-position: center;  
     background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
     width: 30%;
-    height: 30%;
+    height: 15%;
     z-index: -1;
-    margin-top: 680px;
-    margin-left: 350px;
+    margin-top: 800px;
+    margin-left: 290px;
   }
 
 h1 {
