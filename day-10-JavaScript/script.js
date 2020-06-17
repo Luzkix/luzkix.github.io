@@ -104,12 +104,15 @@ for (let i = 0; i < array.length; i++) {
 
 printValues ([0, 1, 3, 5]);
 
+console.log("Teď přijde použití funkce s forEach!")
+
+// Nahrazení for loops za forEach v rámci funkce
 
 let displayValues = (array) => {
-    displayValues.forEach((array) => {
-    console.log(array);
+    array.forEach(function(item) {
+    console.log(item);
     });
 };
-  
-displayValues ([2, 2, 2, 2]);
+
+displayValues ([2, 3, 4, 5]);
 
