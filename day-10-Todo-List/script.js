@@ -61,8 +61,8 @@ $("#AddButton").click(function() {
 $(document).on("click","li", function () {  // musím použít on.("click", "selector", "function") namísto click, protože jde o dynamický obsah
     hodnota = $(this).text(); // definuji proměnnou (let nemusím, už je definováno)
     $(this).html(`
-    <span style="text-decoration: line-through; color: lightgrey;">${hodnota}</span>
-    <strong style="color: lightgreen;">...SPLNĚNO! &#128077</strong>
+    <span style="text-decoration: line-through; color: grey;">${hodnota}</span>
+    <strong style="color: darkgreen;">...SPLNĚNO! &#128077</strong>
     `)
     .css("font-style", "italic") //kurzíva
 });
