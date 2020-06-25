@@ -1,0 +1,45 @@
+body {
+
+}
+
+main {
+    height: 380px;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+}
+
+.arrows {
+    width: 50px;
+    height: 380px;
+    background-color: aqua;
+}
+
+#viewer {
+    width: 1022px;
+    position: relative;
+}
+
+.picture_description {
+    position: absolute;
+    bottom: 0%;
+    max-height: 200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+     
+}
+
+h1 {
+    padding: 20px 0px 10px 20px;
+    margin: 0;
+}
+p {
+    padding: 10px 0px 20px 20px;
+    margin: 0;
+}
+
+div {
+    margin: 0px;
+    padding: 0px;
+    color: whitesmoke;
+}
