@@ -18,7 +18,7 @@ main {
     margin: auto;
     display: flex;
     box-shadow: 0 4px 8px 1px rgb(156, 156, 156);
-    border-radius: 5px  
+    border-radius: 3px  
 }
 
 #viewer {
@@ -64,11 +64,11 @@ p {
 }
 
 #arrow_left {
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 3px 0px 0px 3px;
 }
 
 #arrow_right {
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 3px 3px 0px;
 }
 
 #arrow_right img {
