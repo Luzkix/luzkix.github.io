@@ -4,7 +4,7 @@ align-content: center;
 
 main {
     height: 380px;
-    width: fit-content;
+    max-width: 1122px;
     margin: 0px;
     padding: 0px;
     display: flex;
