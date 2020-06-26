@@ -1,10 +1,12 @@
 body {
     display: flex;
     width: 100%;
-    height: 500px;
-    justify-content: center; //horizontální vystředění
-    align-items: center; //vertikální vystředění
- 
+    height: 750px; /*Potřeba zadat jinak to nevycentruju :-( */
+    justify-content: center; /*orizontální vystředění*/
+    align-items: center; /*vertikální vystředění*/
+    background-image: linear-gradient(to right, rgb(199, 199, 199), rgb(240, 240, 240), rgb(199, 199, 199));
+    box-shadow: inset 0 0 200px rgb(156, 156, 156);
+    
 }
 
 main {
@@ -13,20 +15,12 @@ main {
     padding: 0px;
     margin: auto;
     display: flex;
-
-}
-
-.arrows {
-    min-width: 50px;
-    height: 100%;
-    background-color: aqua;
-}
-#arrow_right img {
-    transform: rotate(0.5turn);
+    box-shadow: 0 4px 8px 1px rgb(156, 156, 156);
+    border-radius: 5px  
 }
 
 #viewer {
-    max-width: 1022px;
+    width: 1022px;
     height: 100%;
     position: relative;
 }
@@ -53,6 +47,33 @@ p {
     padding: 10px 0px 20px 20px;
     margin: 0;
 }
+
+.arrows {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgb(252, 252, 252) , rgb(228, 228, 228));
+}
+
+.arrows img:hover {
+    cursor: pointer;
+}
+
+#arrow_left {
+    border-radius: 5px 0px 0px 5px;
+}
+
+#arrow_right {
+    border-radius: 0px 5px 5px 0px;
+}
+
+#arrow_right img {
+    transform: rotate(0.5turn);
+}
+
+
 
 div {
     margin: 0px;
