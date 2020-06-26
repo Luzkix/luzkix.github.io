@@ -1,4 +1,6 @@
 body {
+    font-family: 'Roboto', sans-serif;
+    color: whitesmoke;
     display: flex;
     width: 100%;
     height: 750px; /*Potřeba zadat jinak to nevycentruju :-( */
@@ -35,7 +37,7 @@ main {
     bottom: 0%;
     max-height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.3); 
 }
 
 h1 {
@@ -71,12 +73,4 @@ p {
 
 #arrow_right img {
     transform: rotate(0.5turn);
-}
-
-
-
-div {
-    margin: 0px;
-    padding: 0px;
-    color: whitesmoke;
 }
