@@ -17,7 +17,7 @@ main {
     height: 380px;
     max-width: 1122px;
     padding: 0px;
-    margin: auto;
+    margin: auto 100px;
     display: flex;
     box-shadow: 0 4px 8px 1px rgb(156, 156, 156);
     border-radius: 3px  
@@ -39,7 +39,7 @@ main {
     bottom: 0%;
     max-height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3); 
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
 h1 {
@@ -48,7 +48,7 @@ h1 {
 }
 
 p {
-    padding: 10px 0px 15px 20px;
+    padding: 10px 10px 15px 20px;
     margin: 0;
 }
 
@@ -63,6 +63,7 @@ p {
 
 .arrows img:hover {
     cursor: pointer;
+    opacity: 30%;
 }
 
 #arrow_left {
