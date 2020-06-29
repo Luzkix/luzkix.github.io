@@ -34,7 +34,7 @@ main {
     height: 100%;
 }
 
-.picture_description {
+.gray-container {
     position: absolute;
     bottom: 0%;
     max-height: 100%;
@@ -43,12 +43,12 @@ main {
 }
 
 h1 {
-    padding: 20px 0px 10px 20px;
+    padding: 10px 0px 0px 20px;
     margin: 0;
 }
 
 p {
-    padding: 10px 0px 20px 20px;
+    padding: 10px 0px 15px 20px;
     margin: 0;
 }
 
