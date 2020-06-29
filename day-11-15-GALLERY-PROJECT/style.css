@@ -17,7 +17,7 @@ main {
     height: 380px;
     max-width: 1122px;
     padding: 0px;
-    margin: 100px 100px;
+    margin: auto;
     display: flex;
     box-shadow: 0 4px 8px 1px rgb(156, 156, 156);
     border-radius: 3px  
