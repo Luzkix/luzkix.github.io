@@ -122,7 +122,7 @@ let photo20 = {
 let imagesData = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9,
     photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20];
 
-let currentPhoto = 4;
+let currentPhoto = 5;
 
 $('#photo').attr('src', imagesData[currentPhoto].photo);
 $('#photo-title').text(imagesData[currentPhoto].title);
