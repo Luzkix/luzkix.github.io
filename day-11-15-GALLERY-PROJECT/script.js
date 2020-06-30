@@ -1,3 +1,4 @@
+//nadefinuji objekty photo1-20, skládající se ze 3 items.
 let photo1 = {
     photo: "Gallery/1_Erice.jpg",
     title: "Erice",
@@ -58,73 +59,42 @@ let photo10 = {
     description: "(2013) Berlin. Although not clear at first, the picture represents the real painting on the famous Berlin Wall. In fact, the Berlin Wall is covered by a lot of paintings and this is just one of them. However, I liked it a lot – the dark atmosphere from the painting was touching me immediately and was screaming for taking of the picture. So, I took a picture – freely, unlike in times before 9th of November, 1989, when the Berlin Wall was still fulfilling its purpose – separating free West from communistic East." 
 };
 
-let photo11 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo12 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo13 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo14 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo15 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo16 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo17 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo18 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo19 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-let photo20 = {
-    photo: "Gallery/4_havana.jpg",
-    title: "Havana, Cuba",
-    description: "(2018) Havana, with its narrow streets and overhanging balconies, is the traditional center of Cubans commerce, industry, and entertainment, as well as being a residential area. We loved Havana´s nice people, mojito and of course old American cars (taxis) which put you back to the 50´s. And of course, the sunset…"
-};
-
-
-
+//nadefinuji array "imagesData" z výše uvedených objektů photo1-20
 let imagesData = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9,
-    photo10, photo11, photo12, photo13, photo14, photo15, photo16, photo17, photo18, photo19, photo20];
+    photo10];
 
-let currentPhoto = 5;
+let currentPhoto = 0; 
 
+/*  Nadefinuji jquerry skripty, které dohrávají fotku a popisky do příslušné html sekce. 
+    Níže je všechny dám do funkce "loadPhoto".
 $('#photo').attr('src', imagesData[currentPhoto].photo);
 $('#photo-title').text(imagesData[currentPhoto].title);
 $('#photo-description').text(imagesData[currentPhoto].description);
+*/
+
+let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto
+    $('#photo').attr('src', imagesData[currentPhoto].photo);
+    $('#photo-title').text(imagesData[currentPhoto].title);
+    $('#photo-description').text(imagesData[currentPhoto].description);  
+}
+
+loadPhoto(currentPhoto); //spustím funkci loadPhoto, tím se nahraje úvodní fotka
+
+$("#arrow_right").click(function() { //nadefunuji co se má stát po kliku na pravou šipku
+    if (currentPhoto < ((imagesData.length)-1)) { //dokud je číslo menší než délka array - 1, tak přičítej 1
+        currentPhoto++;
+    }
+    loadPhoto(currentPhoto);
+});
+
+$("#arrow_left").click(function() { //to samé pro levou šipku
+    if (currentPhoto > 0) {
+        currentPhoto--;
+    }
+    loadPhoto(currentPhoto);
+});
+
+
+
+
+
