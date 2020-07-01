@@ -59,9 +59,15 @@ let photo10 = {
     description: "(2013) Berlin. Although not clear at first, the picture represents the real painting on the famous Berlin Wall. In fact, the Berlin Wall is covered by a lot of paintings and this is just one of them. However, I liked it a lot – the dark atmosphere from the painting was touching me immediately and was screaming for taking of the picture. So, I took a picture – freely, unlike in times before 9th of November, 1989, when the Berlin Wall was still fulfilling its purpose – separating free West from communistic East." 
 };
 
+let photo11 = {
+    photo: "Gallery/Greenfox.PNG",
+    title: "Test Picture",
+    description: "(2013) Berlin. Although not clear at first, the picture represents the real painting on the famous Berlin Wall. In fact, the Berlin Wall is covered by a lot of paintings and this is just one of them. However, I liked it a lot – the dark atmosphere from the painting was touching me immediately and was screaming for taking of the picture. So, I took a picture – freely, unlike in times before 9th of November, 1989, when the Berlin Wall was still fulfilling its purpose – separating free West from communistic East." 
+};
+
 //nadefinuji array "imagesData" z výše uvedených objektů photo1-20
 let imagesData = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9,
-    photo10];
+    photo10, photo11];
 
 let currentPhoto = 0; 
 
