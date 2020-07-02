@@ -89,6 +89,8 @@ loadPhoto(currentPhoto); //spustím funkci loadPhoto, tím se nahraje úvodní f
 $("#arrow_right").click(function() { //nadefunuji co se má stát po kliku na pravou šipku
     if (currentPhoto < ((imagesData.length)-1)) { //dokud je číslo menší než délka array - 1, tak přičítej 1
         currentPhoto++;
+    }  else {
+        currentPhoto = 0
     }
     loadPhoto(currentPhoto);
 });
@@ -96,6 +98,8 @@ $("#arrow_right").click(function() { //nadefunuji co se má stát po kliku na pr
 $("#arrow_left").click(function() { //to samé pro levou šipku
     if (currentPhoto > 0) {
         currentPhoto--;
+    } else {
+        currentPhoto = ((imagesData.length)-1)
     }
     loadPhoto(currentPhoto);
 });
