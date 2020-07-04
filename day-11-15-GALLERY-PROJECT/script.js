@@ -71,7 +71,7 @@ let photo10 = {
 
 let photo11 = {
     photo: "Gallery/Greenfox.PNG",
-    icon: "Icon/Greenfox.PNG",
+    icon: "Icon/Greenfox.png",
     title: "Green Fox Academy logo",
     description: "(2020) Green Fox Academy logo. Just for test purposes :-) " 
 };
