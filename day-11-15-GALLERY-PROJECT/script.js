@@ -115,22 +115,37 @@ $("#arrow_left").click(function() { //to samé pro levou šipku
     loadPhoto(currentPhoto);
 });
 
-//použiji funkci forEach k vytvoření počtu ikon dle počtu fotek dle imagesData.
-//z imagesData musím vyčíst cestu k ikonám, tzn. property s názvem "icon"
+//1: použiji funkci forEach k vytvoření počtu ikon dle počtu fotek dle imagesData.
+//z imagesData musím vyčíst cestu k ikonám, tzn. využiju property s názvem "icon"
 //pak ji mohu vložit do HTML textu a díky funkci forEach se bude měnit dle jednotlivých fotek
 
-let getIcons = ""
+imagesData.forEach(function (element, index) {  
+    /* element využiji pro cestu k ikoně, index potřebuji pro vrácení čísla konkrétní ikony
+    Pozn: výraz "data-index" musím vložit až do elementu <img>, nikoli do nadřízeného kontejneru. 
+    Jinak se nedokáže odečítat kliknutí nad ikonou (obrázek asi nadřízený kontejner zakryje a klik na něj pak není detekován) */
 
-imagesData.forEach(function (element) {
-    let iconTarget = element.icon; //tzn. tím určím konkrétní object.property (cesta k ikoně)
-    getIcons += `
-        <div class="icon-background">
+    $("#container").append(`
+        <div class="iconBackground">
         <div class="icon">
-            <img src="${iconTarget}" alt="">
+            <img class="iconPicture" src="${element.icon}" alt="" data-index="${index}"> 
         </div>
         </div>
-        `
-    }
-);
+    `);
+});
+    
 
-$("#container").html(getIcons); //tím nahradím původní HTML
+
+//2: vytvořím funkci click pro klik nad ikonou, která vyčte číslo obrázku:
+
+$(".iconPicture").click(function(event) {
+    //2.1 nejprve zjistím index ikony, na kterou jsem kliknul:
+    let indexClicked = $(event.target).attr("data-index");
+            
+        //2.2 hodnota "indexClicked" je však text, takže ji převedu na číslo: 
+    let numberIndex = parseInt(indexClicked);
+        
+    $('#clicked').text(numberIndex); //jen test       
+});
+
+
+

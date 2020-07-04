@@ -108,7 +108,7 @@ p {
     padding: 0px;
 }
 
-.icon-background { 
+.iconBackground { 
     /*použiju background abych mohl udělat rámeček linear-gradient.*/
     margin: 0px 0.2vw; /* chci margin z boku aby ikony nebyly na sobě */
     padding: 0px;
