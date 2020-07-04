@@ -17,6 +17,7 @@ let funkceKlik = (kliktext) => {
     return a;
    };
 
+
 $("button").on("click", () => {console.log(funkceKlik(kliktext))});
 
 // klinku na Button2 a změním popisek Buttonu1
