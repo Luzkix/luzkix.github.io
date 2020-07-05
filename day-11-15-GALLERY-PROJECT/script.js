@@ -80,6 +80,9 @@ let photo11 = {
 let imagesData = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9,
     photo10, photo11];
 
+
+//vytvoření hlavní fotogalerie
+
 let currentPhoto = 0; 
 
 /*  Nadefinuji jquerry skripty, které dohrávají fotku a popisky do příslušné html sekce. 
@@ -90,9 +93,23 @@ $('#photo-description').text(imagesData[currentPhoto].description);
 */
 
 let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto
-    $('#photo').attr('src', imagesData[currentPhoto].photo);
+    $("#photo").replaceWith(`
+        <img id="photo" 
+        src="${imagesData[currentPhoto].photo}" 
+        alt="${imagesData[currentPhoto].title}" 
+        data-index="${currentPhoto}"> 
+        </img>`);
+        //nadefinoval jsem HTML element <img>, kterým přepíšu původní <img>
+        //data-index obsahuje č. aktuální fotky a bude se hodit později pro spárování s ikonou
+
     $('#photo-title').text(imagesData[currentPhoto].title);
-    $('#photo-description').text(imagesData[currentPhoto].description);  
+    $('#photo-description').text(imagesData[currentPhoto].description);   
+
+    let indexPictured = $("#photo").attr("data-index");
+    let numberPictured = parseInt(indexPictured);
+    $('#viewed').text(numberPictured); // TEST zobrazení indexu fotky v prohlížeči
+    
+    console.log($("#photo").attr("data-index"))   
 }
 
 loadPhoto(currentPhoto); //spustím funkci loadPhoto, tím se nahraje úvodní fotka
@@ -115,6 +132,8 @@ $("#arrow_left").click(function() { //to samé pro levou šipku
     loadPhoto(currentPhoto);
 });
 
+
+// Vytvoření pásu ikon
 //1: použiji funkci forEach k vytvoření počtu ikon dle počtu fotek dle imagesData.
 //z imagesData musím vyčíst cestu k ikonám, tzn. využiju property s názvem "icon"
 //pak ji mohu vložit do HTML textu a díky funkci forEach se bude měnit dle jednotlivých fotek
@@ -125,15 +144,15 @@ imagesData.forEach(function (element, index) {
     Jinak se nedokáže odečítat kliknutí nad ikonou (obrázek asi nadřízený kontejner zakryje a klik na něj pak není detekován) */
 
     $("#container").append(`
-        <div class="iconBackground">
-        <div class="icon">
-            <img class="iconPicture" src="${element.icon}" alt="" data-index="${index}"> 
+        <div class="iconBackground" id="iconBackground${index}">
+        <div class="icon" id="icon${index}">
+            <img class="iconPicture" src="${element.icon}" alt="${element.title}" data-index="${index}" id="iconPicture${index}">
+            <p class="iconTitle">${element.title}</p>
         </div>
         </div>
     `);
 });
     
-
 
 //2: vytvořím funkci click pro klik nad ikonou, která vyčte číslo obrázku:
 
@@ -143,9 +162,22 @@ $(".iconPicture").click(function(event) {
             
         //2.2 hodnota "indexClicked" je však text, takže ji převedu na číslo: 
     let numberIndex = parseInt(indexClicked);
-        
-    $('#clicked').text(numberIndex); //jen test       
+    
+    $('#clicked').text(numberIndex); // TEST zobrazení ID kliknuté fotky
+
+    currentPhoto = numberIndex; 
+    loadPhoto(currentPhoto); //při kliknutí na ikonu se dohraje související hlavní foto          
 });
+
+
+
+/* TEST
+$('.icon').hover(
+    function(){$(this).animate({width: "4vw", height:"4vw"}, 100);},
+);
+
+$(`#iconPicture${currentPhoto}`).css("min-width", "6vw", "display", "none");
+*/
 
 
 
