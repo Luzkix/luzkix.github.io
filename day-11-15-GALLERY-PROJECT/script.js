@@ -81,16 +81,17 @@ let imagesData = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8
     photo10, photo11];
 
 
-//vytvoření hlavní fotogalerie
 
-let currentPhoto = 0; 
+//vytvoření hlavní fotogalerie
 
 /*  Nadefinuji jquerry skripty, které dohrávají fotku a popisky do příslušné html sekce. 
     Níže je všechny dám do funkce "loadPhoto".
-$('#photo').attr('src', imagesData[currentPhoto].photo);
+$('#photo').replaceWith(`html sekce s obrázkem`);
 $('#photo-title').text(imagesData[currentPhoto].title);
 $('#photo-description').text(imagesData[currentPhoto].description);
 */
+
+let currentPhoto = 0; 
 
 let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto
     $("#photo").replaceWith(`
@@ -109,7 +110,12 @@ let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto
     let numberPictured = parseInt(indexPictured);
     $('#viewed').text(numberPictured); // TEST zobrazení indexu fotky v prohlížeči
     
-    console.log($("#photo").attr("data-index"))   
+    //pokus - animace ikony, když se změní obrázek. Funguje až od druhého kola, tzn., až už jsou načteny ikony a nevrací je zpět
+    $(`#iconBackground${currentPhoto}`).animate({
+        top: "-1vw",
+        borderRadius: "0vw", 
+    });
+      
 }
 
 loadPhoto(currentPhoto); //spustím funkci loadPhoto, tím se nahraje úvodní fotka
@@ -134,6 +140,7 @@ $("#arrow_left").click(function() { //to samé pro levou šipku
 
 
 // Vytvoření pásu ikon
+
 //1: použiji funkci forEach k vytvoření počtu ikon dle počtu fotek dle imagesData.
 //z imagesData musím vyčíst cestu k ikonám, tzn. využiju property s názvem "icon"
 //pak ji mohu vložit do HTML textu a díky funkci forEach se bude měnit dle jednotlivých fotek
@@ -144,7 +151,7 @@ imagesData.forEach(function (element, index) {
     Jinak se nedokáže odečítat kliknutí nad ikonou (obrázek asi nadřízený kontejner zakryje a klik na něj pak není detekován) */
 
     $("#container").append(`
-        <div class="iconBackground" id="iconBackground${index}">
+        <div class="iconBackground" id="iconBackground${index}" data-index="${index}">
         <div class="icon" id="icon${index}">
             <img class="iconPicture" src="${element.icon}" alt="${element.title}" data-index="${index}" id="iconPicture${index}">
             <p class="iconTitle">${element.title}</p>
@@ -153,7 +160,6 @@ imagesData.forEach(function (element, index) {
     `);
 });
     
-
 //2: vytvořím funkci click pro klik nad ikonou, která vyčte číslo obrázku:
 
 $(".iconPicture").click(function(event) {
@@ -163,21 +169,28 @@ $(".iconPicture").click(function(event) {
         //2.2 hodnota "indexClicked" je však text, takže ji převedu na číslo: 
     let numberIndex = parseInt(indexClicked);
     
-    $('#clicked').text(numberIndex); // TEST zobrazení ID kliknuté fotky
-
     currentPhoto = numberIndex; 
     loadPhoto(currentPhoto); //při kliknutí na ikonu se dohraje související hlavní foto          
+
+    $('#clicked').text(numberIndex); // TEST zobrazení ID kliknuté fotky nad hlavní foto
 });
 
 
 
-/* TEST
-$('.icon').hover(
-    function(){$(this).animate({width: "4vw", height:"4vw"}, 100);},
-);
+/* TEST - co chci: pokud má hlavní fotka (id=photo) stejný data-index jako jedna ze zobrazených ikon
+    (ty mají rovněž data-index a jsou identifikovatelné pomocí class="iconBackground" nebo id="iconBackground${index}"), 
+    tzn. jedná se o stejnou fotku, dojde k posunutí této ikony o 1vw nahoru - viz efect animate níže. Ostatní ikony však zůstávají. 
+    Když se hlavní obrázek změní na jiný, tak původní ikona se opět vrátí a nová ikona se posouvá nahoru 
+    - to se asi udělá pomocí if, ale nejprv musím nějak spárovat hlavní foto s konkrétní ikonou, což nevím :-(
 
-$(`#iconPicture${currentPhoto}`).css("min-width", "6vw", "display", "none");
+    V zadání je k tomu jediná nápověda: "Highlight the thumbnail that is showing (extend the loadPhoto function)",
+    nicméně nějak se mi to nezdá. Ta funkce loadPhoto je definována před tím, než jsem definoval pás ikon,
+    takže na ty ikony přeci nemůže vidět a porovnávat je. Nevím...
+    
+Animace co se použije:
+$(`#iconBackground${currentPhoto}`).animate({
+    top: "-1vw",
+    borderRadius: "0vw", 
+});
+
 */
-
-
-
