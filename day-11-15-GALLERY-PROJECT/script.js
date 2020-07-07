@@ -94,7 +94,7 @@ $('#photo-description').text(imagesData[currentPhoto].description);
 
 let currentPhoto = 0; 
 
-let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto
+let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto, která dohrává hlavní obrázek
     $("#photo").replaceWith(`
         <img id="photo" 
         src="${imagesData[currentPhoto].photo}" 
@@ -104,23 +104,36 @@ let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto
         //nadefinoval jsem HTML element <img>, kterým přepíšu původní <img>
         //data-index obsahuje č. aktuální fotky a bude se hodit později pro spárování s ikonou
 
-    $('#photo-title').text(imagesData[currentPhoto].title);
-    $('#photo-description').text(imagesData[currentPhoto].description);   
+    $('#photo-title').text(imagesData[currentPhoto].title); //Dohraje titulek
+    $('#photo-description').text(imagesData[currentPhoto].description); //Dohraje popisek  
 
-    let indexPictured = $("#photo").attr("data-index");
-    let numberPictured = parseInt(indexPictured);
-    $('#viewed').text(numberPictured); // TEST zobrazení indexu fotky v prohlížeči
-    
-    /*pokus - animace ikony, když se změní obrázek. Funguje až od druhého kola, tzn., až už jsou načteny ikony a nevrací je zpět
-    $(`#iconBackground${currentPhoto}`).animate({
-        top: "-1vw",
-        borderRadius: "0vw", 
-    });
-    */
-      
+   //Animace aktuálně zobrazené ikony (pozn. toto nadefinováno až poté, co jsem níže nadefinoval pás ikon)
+    $(`.iconBackground`).animate({ //doplněno dodatečně - nejprve vrácení rámečku všech iconBackground do původního stavu (jinak by animace níže zůstala napořád)
+        borderRadius: "0.4vw", 
+        },100);
+
+    $(`.iconPicture`).animate({ //doplněno dodatečně - vrácení rámečku všech iconPicture do původního stavu
+        borderRadius: "0.2vw", 
+        },100);
+
+    $(`#iconBackground${currentPhoto}`).animate({ //kulatý rámeček pozadí konkrétní ikony
+        borderRadius: "50%",
+        },200);
+
+    $(`#iconPicture${currentPhoto}`).animate({ //kulatý rámeček fotky konkrétní ikony
+        borderRadius: "50%",
+        },200);
 }
 
-loadPhoto(currentPhoto); //spustím funkci loadPhoto, tím se nahraje úvodní fotka
+/* loadPhoto(currentPhoto); tím spustím funkci loadPhoto, tím čímž se nahraje úvodní fotka. 
+Příkaz ale potřebuji spustit až poté, co nadefinuji pás ikon (obsahuje totiž animaci ikon).
+To udělám buď tak, že loadPhoto(currentPhoto); umístím až níže, pod pás ikon, nebo funkcí,
+která zajistí jeho odložené spuštění (až bude načten celý dokument, viz níže) */
+
+$(document).ready(function() {
+    loadPhoto(currentPhoto) // spustím funkci loadPhoto až poté, co bude načten celý dokument
+}); 
+
 
 $("#arrow_right").click(function() { //nadefunuji co se má stát po kliku na pravou šipku
     if (currentPhoto < ((imagesData.length)-1)) { //dokud je číslo menší než délka array - 1, tak přičítej 1
@@ -159,7 +172,7 @@ imagesData.forEach(function (element, index) {
             <p class="iconTitle">${element.title}</p>
         </div>
         </div>
-    `);
+    `); //Pozn. některé indexy/indexy u ID mohou být zbytečné, nevěděl jsem co vše se kdy bude hodit
 
 });
     
@@ -175,41 +188,16 @@ $(".iconPicture").click(function(event) {
     currentPhoto = numberIndex; 
     loadPhoto(currentPhoto); //při kliknutí na ikonu se dohraje související hlavní foto          
 
-    $('#clicked').text(numberIndex); // TEST zobrazení ID kliknuté fotky nad hlavní foto
 });
-
-
-
-/* TEST - co chci: pokud má hlavní fotka (id=photo) stejný data-index jako jedna ze zobrazených ikon
-    (ty mají rovněž data-index a jsou identifikovatelné pomocí class="iconBackground" nebo id="iconBackground${index}"), 
-    tzn. jedná se o stejnou fotku, dojde k posunutí této ikony o 1vw nahoru - viz efect animate níže. Ostatní ikony však zůstávají. 
-    Když se hlavní obrázek změní na jiný, tak původní ikona se opět vrátí a nová ikona se posouvá nahoru 
-    - to se asi udělá pomocí if, ale nejprv musím nějak spárovat hlavní foto s konkrétní ikonou, což nevím :-(
-
-    V zadání je k tomu jediná nápověda: "Highlight the thumbnail that is showing (extend the loadPhoto function)",
-    nicméně nějak se mi to nezdá. Ta funkce loadPhoto je definována před tím, než jsem definoval pás ikon,
-    takže na ty ikony přeci nemůže vidět a porovnávat je. Nevím...
-    
-Animace co se použije:
-$(`#iconBackground${currentPhoto}`).animate({
-    top: "-1vw",
-    borderRadius: "0vw", 
-});
-
-$.preload(imagesData[Element.photo]);
-
-*/
 
 //Animace hover nad ikonami
 $(".iconBackground").hover(function () {
     $(this).animate({
         top: "-0.5vw",
-        borderRadius: "0vw",
-        });
+        },150);
     }, function () {
     $(this).animate({
         top: "0vw",
-        borderRadius: "0.4vw", 
-        });
+        },150);
     }     
 );

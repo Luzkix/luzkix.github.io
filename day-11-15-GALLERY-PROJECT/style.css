@@ -38,7 +38,7 @@ main {
 #viewer img{
     max-width: 100%;
     max-height: 70vh;
-    display: flex; //abych mohl vertikálně vystředit 
+    display: flex; /*abych mohl vertikálně vystředit*/ 
     align-items: center;
 }
 
@@ -53,7 +53,7 @@ main {
 h1 {
     padding: 10px 0px 0px 20px;
     margin: 0;
-    font-size: 2vw; //jednotka říká že velikost je 2% šířky displaye (dle jeho rozlišení). Lze použít i vh (dle výšky displaye)
+    font-size: 2vw; /*jednotka říká že velikost je 2% šířky displaye (dle jeho rozlišení). Lze použít i vh (dle výšky displaye)*/
 }
 
 p {
@@ -129,11 +129,6 @@ p {
 
 #counters {
     margin: 0vw 5vw 0vw 5vw;
-}
-
-#counters p {
-    margin: 0px;
-    padding: 0px;
 }
 
 .iconTitle {
