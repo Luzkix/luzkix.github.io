@@ -1,13 +1,4 @@
-#viewport {
-    max-width: 100vw; 
-    max-height: 100vh;
-    margin: 0px;
-    padding: 0px;
-    
-
-}
-
-body {
+#body {
     margin: 0px;
     padding: 0px;
     font-family: 'Roboto', sans-serif;
@@ -18,8 +9,14 @@ body {
     justify-content: center; /*horizontální vystředění*/
     align-items: center; /*vertikální vystředění*/
     background-image: linear-gradient(to right, rgb(199, 199, 199), rgb(240, 240, 240), rgb(199, 199, 199));
-    box-shadow: inset 0 0 200px rgb(156, 156, 156);
-    
+    box-shadow: inset 0 0 200px rgb(156, 156, 156);    
+}
+
+#viewport {
+    max-width: 100vw; 
+    max-height: 100vh;
+    margin: 0px;
+    padding: 0px;
 }
 
 main {
