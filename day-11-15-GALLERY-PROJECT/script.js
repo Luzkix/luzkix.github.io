@@ -111,11 +111,12 @@ let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto
     let numberPictured = parseInt(indexPictured);
     $('#viewed').text(numberPictured); // TEST zobrazení indexu fotky v prohlížeči
     
-    //pokus - animace ikony, když se změní obrázek. Funguje až od druhého kola, tzn., až už jsou načteny ikony a nevrací je zpět
+    /*pokus - animace ikony, když se změní obrázek. Funguje až od druhého kola, tzn., až už jsou načteny ikony a nevrací je zpět
     $(`#iconBackground${currentPhoto}`).animate({
         top: "-1vw",
         borderRadius: "0vw", 
     });
+    */
       
 }
 
