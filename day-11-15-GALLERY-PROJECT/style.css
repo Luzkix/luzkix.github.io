@@ -46,6 +46,7 @@ main {
     position: absolute;
     bottom: 0%;
     max-height: 60%;
+    overflow:hidden; /*když by se text nevešel do rámečku, tak nebude vidět*/
     width: 100%;
     background-color: rgba(0, 0, 0, 0.4);
 }
