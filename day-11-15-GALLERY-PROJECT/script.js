@@ -82,6 +82,7 @@ let imagesData = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8
 
 
 
+
 //vytvoření hlavní fotogalerie
 
 /*  Nadefinuji jquerry skripty, které dohrávají fotku a popisky do příslušné html sekce. 
@@ -158,6 +159,7 @@ imagesData.forEach(function (element, index) {
         </div>
         </div>
     `);
+
 });
     
 //2: vytvořím funkci click pro klik nad ikonou, která vyčte číslo obrázku:
@@ -193,4 +195,20 @@ $(`#iconBackground${currentPhoto}`).animate({
     borderRadius: "0vw", 
 });
 
+$.preload(imagesData[Element.photo]);
+
 */
+
+//Animace hover nad ikonami
+$(".iconBackground").hover(function () {
+    $(this).animate({
+        top: "-0.5vw",
+        borderRadius: "0vw",
+        });
+    }, function () {
+    $(this).animate({
+        top: "0vw",
+        borderRadius: "0.4vw", 
+        });
+    }     
+);
