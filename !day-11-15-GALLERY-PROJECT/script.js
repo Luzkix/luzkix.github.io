@@ -82,7 +82,7 @@ let imagesData = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8
 
 
 // Funkce preload přednahraje všechny obrázky do paměti, pak jsou animace plynulé
-// Funkci mi vytvořil Petr, nedělal jsem jí sám.
+// Funkci mi vytvořil Petr, nedělal jsem jí sám. Vysvětlení pod ní.
 function preload(arrayOfImages) {
     $(arrayOfImages).each(function () {
         $('<img/>')[0].src = this;
@@ -107,6 +107,12 @@ $(function () {
         photo11.photo
     ]);
 });
+/* V podstatě jde hlavně o tenhle řádek (ten je obalenej cyklem, kterej projede všechny prvky, který máš v poli)
+$('<img/>')[0].src = this;
+Vytvoříš si novej obrázek $('<img/>') a dosadíš mu zdroj (src). This je v tomhle případě url.... 
+A ta nula tam je, protože pokud si vypíšeš do konzole to $('<img/>'), tak zjistíš, že to je objekt, 
+kterej má pod prvním prvkem (pod nulou) asi milion různých atributů včetně toho src */
+
 
 
 //vytvoření hlavní fotogalerie
