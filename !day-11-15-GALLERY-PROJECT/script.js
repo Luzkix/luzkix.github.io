@@ -66,14 +66,14 @@ let photo10 = {
     photo: "Gallery/10_Berlinska_zed.jpg",
     icon: "Icon/10_Berlinska_zed.jpg",
     title: "The Berlin Wall",
-    description: "(2013) Berlin. Although not clear at first, the picture represents the real painting on the famous Berlin Wall. In fact, the Berlin Wall is covered by a lot of paintings and this is just one of them. However, I liked it a lot – the dark atmosphere from the painting was touching me immediately and was screaming for taking of the picture. So, I took a picture – freely, unlike in times before 9th of November, 1989, when the Berlin Wall was still fulfilling its purpose – separating free West from communistic East." 
+    description: "(2013) Berlin. Although not clear at first, the picture represents the real painting on the famous Berlin Wall. In fact, the Berlin Wall is covered by a lot of paintings and this is just one of them. However, I liked it a lot – the dark atmosphere from the painting was touching me immediately and was screaming for taking of the picture. So, I took a picture – freely, unlike in times before 9th of November, 1989, when the Berlin Wall was still fulfilling its purpose – separating free West from communistic East."
 };
 
 let photo11 = {
     photo: "Gallery/Greenfox.PNG",
     icon: "Icon/Greenfox.png",
     title: "Green Fox Academy logo",
-    description: "(2020) Green Fox Academy logo. Just for test purposes :-) " 
+    description: "(2020) Green Fox Academy logo. Just for test purposes :-) "
 };
 
 //nadefinuji array "imagesData" z výše uvedených objektů photo1-20
@@ -81,6 +81,32 @@ let imagesData = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8
     photo10, photo11];
 
 
+// Funkce preload přednahraje všechny obrázky do paměti, pak jsou animace plynulé
+// Funkci mi vytvořil Petr, nedělal jsem jí sám.
+function preload(arrayOfImages) {
+    $(arrayOfImages).each(function () {
+        $('<img/>')[0].src = this;
+        // Alternatively you could use:
+        // (new Image()).src = this;
+    });
+}
+
+$(function () {
+    // Usage:
+    preload([
+        photo1.photo,
+        photo2.photo,
+        photo3.photo,
+        photo4.photo,
+        photo5.photo,
+        photo6.photo,
+        photo7.photo,
+        photo8.photo,
+        photo9.photo,
+        photo10.photo,
+        photo11.photo
+    ]);
+});
 
 
 //vytvoření hlavní fotogalerie
@@ -92,7 +118,7 @@ $('#photo-title').text(imagesData[currentPhoto].title);
 $('#photo-description').text(imagesData[currentPhoto].description);
 */
 
-let currentPhoto = 0; 
+let currentPhoto = 0;
 
 let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto, která dohrává hlavní obrázek
     $("#photo").replaceWith(`
@@ -101,28 +127,28 @@ let loadPhoto = function () { //nadefinuji obsah funkce loadPhoto, která dohrá
         alt="${imagesData[currentPhoto].title}" 
         data-index="${currentPhoto}"> 
         </img>`);
-        //nadefinoval jsem HTML element <img>, kterým přepíšu původní <img>
-        //data-index obsahuje č. aktuální fotky a bude se hodit později pro spárování s ikonou
+    //nadefinoval jsem HTML element <img>, kterým přepíšu původní <img>
+    //data-index obsahuje č. aktuální fotky a bude se hodit později pro spárování s ikonou
 
     $('#photo-title').text(imagesData[currentPhoto].title); //Dohraje titulek
     $('#photo-description').text(imagesData[currentPhoto].description); //Dohraje popisek  
 
-   //Animace aktuálně zobrazené ikony (pozn. toto nadefinováno až poté, co jsem níže nadefinoval pás ikon)
+    //Animace aktuálně zobrazené ikony (pozn. toto nadefinováno až poté, co jsem níže nadefinoval pás ikon)
     $(`.iconBackground`).animate({ //doplněno dodatečně - nejprve vrácení rámečku všech iconBackground do původního stavu (jinak by animace níže zůstala napořád)
-        borderRadius: "0.4vw", 
-        },100);
+        borderRadius: "0.4vw",
+    }, 100);
 
     $(`.iconPicture`).animate({ //doplněno dodatečně - vrácení rámečku všech iconPicture do původního stavu
-        borderRadius: "0.2vw", 
-        },100);
+        borderRadius: "0.2vw",
+    }, 100);
 
     $(`#iconBackground${currentPhoto}`).animate({ //kulatý rámeček pozadí konkrétní ikony
         borderRadius: "50%",
-        },200);
+    }, 200);
 
     $(`#iconPicture${currentPhoto}`).animate({ //kulatý rámeček fotky konkrétní ikony
         borderRadius: "50%",
-        },200);
+    }, 200);
 }
 
 /* loadPhoto(currentPhoto); tím spustím funkci loadPhoto, tím čímž se nahraje úvodní fotka. 
@@ -130,25 +156,25 @@ Příkaz ale potřebuji spustit až poté, co nadefinuji pás ikon (obsahuje tot
 To udělám buď tak, že loadPhoto(currentPhoto); umístím až níže, pod pás ikon, nebo funkcí,
 která zajistí jeho odložené spuštění (až bude načten celý dokument, viz níže) */
 
-$(document).ready(function() {
+$(document).ready(function () {
     loadPhoto(currentPhoto) // spustím funkci loadPhoto až poté, co bude načten celý dokument
-}); 
+});
 
 
-$("#arrow_right").click(function() { //nadefunuji co se má stát po kliku na pravou šipku
-    if (currentPhoto < ((imagesData.length)-1)) { //dokud je číslo menší než délka array - 1, tak přičítej 1
+$("#arrow_right").click(function () { //nadefunuji co se má stát po kliku na pravou šipku
+    if (currentPhoto < ((imagesData.length) - 1)) { //dokud je číslo menší než délka array - 1, tak přičítej 1
         currentPhoto++;
-    }  else {
+    } else {
         currentPhoto = 0
     }
     loadPhoto(currentPhoto);
 });
 
-$("#arrow_left").click(function() { //to samé pro levou šipku
+$("#arrow_left").click(function () { //to samé pro levou šipku
     if (currentPhoto > 0) {
         currentPhoto--;
     } else {
-        currentPhoto = ((imagesData.length)-1)
+        currentPhoto = ((imagesData.length) - 1)
     }
     loadPhoto(currentPhoto);
 });
@@ -160,7 +186,7 @@ $("#arrow_left").click(function() { //to samé pro levou šipku
 //z imagesData musím vyčíst cestu k ikonám, tzn. využiju property s názvem "icon"
 //pak ji mohu vložit do HTML textu a díky funkci forEach se bude měnit dle jednotlivých fotek
 
-imagesData.forEach(function (element, index) {  
+imagesData.forEach(function (element, index) {
     /* element využiji pro cestu k ikoně, index potřebuji pro vrácení čísla konkrétní ikony
     Pozn: výraz "data-index" musím vložit až do elementu <img>, nikoli do nadřízeného kontejneru. 
     Jinak se nedokáže odečítat kliknutí nad ikonou (obrázek asi nadřízený kontejner zakryje a klik na něj pak není detekován) */
@@ -175,17 +201,17 @@ imagesData.forEach(function (element, index) {
     `); //Pozn. některé indexy/indexy u ID mohou být zbytečné, nevěděl jsem co vše se kdy bude hodit
 
 });
-    
+
 //2: vytvořím funkci click pro klik nad ikonou, která vyčte číslo obrázku:
 
-$(".iconPicture").click(function(event) {
+$(".iconPicture").click(function (event) {
     //2.1 nejprve zjistím index ikony, na kterou jsem kliknul:
     let indexClicked = $(event.target).attr("data-index");
-            
-        //2.2 hodnota "indexClicked" je však text, takže ji převedu na číslo: 
+
+    //2.2 hodnota "indexClicked" je však text, takže ji převedu na číslo: 
     let numberIndex = parseInt(indexClicked);
-    
-    currentPhoto = numberIndex; 
+
+    currentPhoto = numberIndex;
     loadPhoto(currentPhoto); //při kliknutí na ikonu se dohraje související hlavní foto          
 
 });
@@ -194,10 +220,10 @@ $(".iconPicture").click(function(event) {
 $(".iconBackground").hover(function () {
     $(this).animate({
         top: "-0.5vw",
-        },150);
-    }, function () {
+    }, 150);
+}, function () {
     $(this).animate({
         top: "0vw",
-        },150);
-    }     
+    }, 150);
+}
 );
