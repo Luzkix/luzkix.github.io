@@ -18,7 +18,7 @@ main {
 
   ul::after { /*udělat průhledné pozadí je celkem složité */
     content: "";
-    background-image: url(0_files/Greenfox.PNG);
+    background-image: url(StayHomeWWWkurz/0_images/Greenfox.PNG);
     display: block;
     opacity: 0.3;
     background-position: center;  
